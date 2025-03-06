@@ -1,2 +1,2 @@
 # learn-react
-learn-react
+My project for react education
