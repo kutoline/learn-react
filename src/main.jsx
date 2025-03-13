@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { restaurants } from "../materials/mock.js";
+import "./common/styles/styles.css";
+import { App } from "./components/App/App";
 
 const RestaurantReviews = ({ reviews }) => {
   const reviewList = reviews.map(({ id, text }) => <li key={id}>{text}</li>);
@@ -24,26 +25,8 @@ const RestaurantMenu = ({ menu }) => {
   );
 };
 
-const Restaurant = ({ name, menu, reviews }) => {
-  return (
-    <div>
-      <h2>{name}</h2>
-      <RestaurantMenu menu={menu} />
-      <RestaurantReviews reviews={reviews} />
-    </div>
-  );
-};
-
-const RestaurantsList = ({ restaurants }) => {
-  const restarauntsList = restaurants.map(({ id, name, menu, reviews }) => (
-    <Restaurant key={id} name={name} menu={menu} reviews={reviews} />
-  ));
-
-  return <div>{restarauntsList}</div>;
-};
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RestaurantsList restaurants={restaurants} />
+    <App />
   </StrictMode>
 );
