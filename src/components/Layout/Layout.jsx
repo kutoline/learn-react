@@ -1,9 +1,9 @@
 export const Layout = ({ children }) => {
   return (
     <main>
-      <header></header>
+      <header />
       <div className="container">{children}</div>
-      <footer></footer>
+      <footer />
     </main>
   );
 };

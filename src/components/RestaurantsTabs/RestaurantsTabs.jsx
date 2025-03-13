@@ -7,16 +7,13 @@ export const RestaurantsTabs = ({ restaurants }) => {
     restaurants.at(0)
   );
 
-  const { id: selectedid, ...selectedRestarauntData } = selectedRestaurant;
-
   const handleSelectedRestaraunt = (restaurant) => {
-    if (restaurant.id === selectedid) {
-      return
+    if (restaurant.id === selectedRestaurant.id) {
+      return;
     }
 
     setSelectedRestaurant(restaurant);
-  }
-
+  };
 
   return (
     <div className={styles.restaurantsTabs}>
@@ -26,7 +23,7 @@ export const RestaurantsTabs = ({ restaurants }) => {
             key={restaurant.id}
             onClick={() => handleSelectedRestaraunt(restaurant)}
             className={`${styles.restaurantsTabs__button} ${
-              selectedid === restaurant.id
+              selectedRestaurant.id === restaurant.id
                 ? styles.restaurantsTabs__buttonActive
                 : ""
             }`}
@@ -36,7 +33,10 @@ export const RestaurantsTabs = ({ restaurants }) => {
         ))}
       </div>
       <div className={styles.restaurantsTabs__content}>
-        <RestaurantQuickView key={selectedid} {...selectedRestarauntData} />
+        <RestaurantQuickView
+          key={selectedRestaurant.id}
+          {...selectedRestaurant}
+        />
       </div>
     </div>
   );
