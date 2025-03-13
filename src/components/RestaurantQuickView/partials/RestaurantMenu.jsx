@@ -1,4 +1,5 @@
 import { Counter } from "../../../common/components/Counter/Counter";
+import { Dish } from "./Dish";
 
 export const RestaurantMenu = ({ menu }) => {
   if (!menu.length) {
@@ -9,14 +10,10 @@ export const RestaurantMenu = ({ menu }) => {
     <div>
       <h2>Меню</h2>
       <ul>
-        {menu.map(({ id, name, price, ingredients }) => {
+        {menu.map((dish) => {
           return (
-            <li key={id}>
-              <p>
-                {name} - {price}$
-              </p>
-              <span>{ingredients.join(", ")}</span>
-              <Counter key={id} max={5} />
+            <li key={dish.id}>
+              <Dish {...dish} />
             </li>
           );
         })}
