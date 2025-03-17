@@ -1,4 +1,6 @@
-export const RestaurantReviews = ({ reviews }) => {
+import { ReviewForm } from "../../ReviewForm/ReviewForm";
+
+export const RestaurantReviews = ({ restaurantId, reviews }) => {
   if (!reviews.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;
   }
@@ -17,6 +19,11 @@ export const RestaurantReviews = ({ reviews }) => {
           );
         })}
       </ul>
+      <ReviewForm
+        key={restaurantId}
+        restaurantId={restaurantId}
+        formTitle="Написать отзыв"
+      />
     </div>
   );
 };

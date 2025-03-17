@@ -1,15 +1,23 @@
-import { useCounter } from "./use-counter";
-
-export const Counter = ({ min = 1, max = 10 }) => {
-  const { count, setDecrement, setIncrement } = useCounter(min);
-
+export const Counter = ({
+  count,
+  minDisabled,
+  maxDisabled,
+  handleIncrease = null,
+  handleDecrease = null,
+}) => {
   return (
     <div className="">
-      <button disabled={count === min} onClick={() => setDecrement(count)}>
+      <button
+        disabled={minDisabled}
+        onClick={handleIncrease && ((e) => handleDecrease(e, count))}
+      >
         -
       </button>
       <span>{count}</span>
-      <button disabled={count === max} onClick={() => setIncrement(count)}>
+      <button
+        disabled={maxDisabled}
+        onClick={handleDecrease && ((e) => handleIncrease(e, count))}
+      >
         +
       </button>
     </div>
