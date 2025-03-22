@@ -1,13 +1,20 @@
-import { Counter } from "../../../common/components/Counter/Counter";
+import {
+  MAX_DISH_QUANTITY,
+  MIN_DISH_QUANTITY,
+} from "../constants/dish-counter";
+import { DishCounter } from "./DishCounter";
 
-export const Dish = ({ id, name, price, ingredients }) => {
+export const Dish = ({ name, price, ingredients }) => {
   return (
     <>
       <p>
         {name} - {price}$
       </p>
       <span>{ingredients.join(", ")}</span>
-      <Counter key={id} max={5} />
+      <DishCounter
+        minDishQuantity={MIN_DISH_QUANTITY}
+        maxDishQuantity={MAX_DISH_QUANTITY}
+      />
     </>
   );
 };

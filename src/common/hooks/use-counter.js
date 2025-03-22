@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react';
 
 export const useCounter = (currentCount) => {
     const [count, setCount] = useState(currentCount);
