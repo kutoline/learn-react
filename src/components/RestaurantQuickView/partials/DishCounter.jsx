@@ -1,7 +1,7 @@
 import { Counter } from "../../../common/components/Counter/Counter";
 import { useCounter } from "../../../common/hooks/use-counter";
 
-export const DishCounter = ({ minDishQuantity, maxDishQty }) => {
+export const DishCounter = ({ minDishQuantity, maxDishQuantity }) => {
   const { count, setIncrement, setDecrement } = useCounter(minDishQuantity);
 
   return (
@@ -10,7 +10,7 @@ export const DishCounter = ({ minDishQuantity, maxDishQty }) => {
       handleIncrease={setIncrement}
       count={count}
       minDisabled={count === minDishQuantity}
-      maxDisabled={count === maxDishQty}
+      maxDisabled={count === maxDishQuantity}
     />
   );
 };

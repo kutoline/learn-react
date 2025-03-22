@@ -13,7 +13,7 @@ export const Dish = ({ name, price, ingredients }) => {
       <span>{ingredients.join(", ")}</span>
       <DishCounter
         minDishQuantity={MIN_DISH_QUANTITY}
-        maxDishQty={MAX_DISH_QUANTITY}
+        maxDishQuantity={MAX_DISH_QUANTITY}
       />
     </>
   );
