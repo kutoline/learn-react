@@ -19,11 +19,7 @@ export const RestaurantReviews = ({ restaurantId, reviews }) => {
           );
         })}
       </ul>
-      <ReviewForm
-        key={restaurantId}
-        restaurantId={restaurantId}
-        formTitle="Написать отзыв"
-      />
+      <ReviewForm formTitle="Написать отзыв" />
     </div>
   );
 };

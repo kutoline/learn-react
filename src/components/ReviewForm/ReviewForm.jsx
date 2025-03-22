@@ -8,7 +8,7 @@ import {
   SET_RATING,
 } from "./constants/field-names";
 
-export const ReviewForm = ({ restaurantId, formTitle = "" }) => {
+export const ReviewForm = ({ formTitle = "" }) => {
   const {
     state: { name, text, rating },
     handleResetForm,
@@ -37,7 +37,6 @@ export const ReviewForm = ({ restaurantId, formTitle = "" }) => {
           minRating={MIN_RATING}
           maxRating={MAX_RATING}
           handleChangeRatingReview={handleSetRatingValue}
-          key={`${restaurantId}${rating}`}
         />
         <button onClick={handleResetForm}>Clear</button>
       </form>
