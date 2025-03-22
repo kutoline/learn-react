@@ -6,18 +6,14 @@ export const ReviewRatingCounter = ({
   handleChangeRatingReview,
   currentRating,
 }) => {
-  const handleDecreaseRating = (e, rating) => {
-    e.preventDefault();
+  const handleDecreaseRating = (rating) => {
     const newRatingValue = rating - 1;
-
-    handleChangeRatingReview("rating", newRatingValue);
+    handleChangeRatingReview(newRatingValue);
   };
 
-  const handleIncreaseRating = (e, rating) => {
+  const handleIncreaseRating = (rating) => {
     const newRatingValue = rating + 1;
-
-    e.preventDefault();
-    handleChangeRatingReview("rating", newRatingValue);
+    handleChangeRatingReview(newRatingValue);
   };
 
   return (

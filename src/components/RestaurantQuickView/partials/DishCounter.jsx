@@ -5,14 +5,12 @@ export const DishCounter = ({ minDishQty, maxDishQty }) => {
   const { count, setIncrement, setDecrement } = useCounter(minDishQty);
 
   return (
-    <>
-      <Counter
-        handleDecrease={setDecrement}
-        handleIncrease={setIncrement}
-        count={count}
-        minDisabled={count === minDishQty}
-        maxDisabled={count === maxDishQty}
-      />
-    </>
+    <Counter
+      handleDecrease={setDecrement}
+      handleIncrease={setIncrement}
+      count={count}
+      minDisabled={count === minDishQty}
+      maxDisabled={count === maxDishQty}
+    />
   );
 };
