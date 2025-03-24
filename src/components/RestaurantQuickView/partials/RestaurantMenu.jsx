@@ -1,4 +1,3 @@
-import { Counter } from "../../../common/components/Counter/Counter";
 import { Dish } from "./Dish";
 
 export const RestaurantMenu = ({ menu }) => {
