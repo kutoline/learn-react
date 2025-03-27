@@ -1,28 +1,23 @@
 import { useEffect, useState, useCallback } from "react";
 
 export const useProgressBar = () => {
-  const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
-
-  const handleScrollPosition = useCallback(() => {
-    return setScrollPosition({
-      ...scrollPosition,
-      y: Math.round(
-        (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
-          100
-      ),
-      x: Math.round(
-        (window.scrollX / (document.body.offsetWidth - window.innerWidth)) * 100
-      ),
-    });
-  }, [scrollPosition]);
+  const [scrollWidth, setScrollWidth] = useState(0);
 
   useEffect(() => {
+    const handleScrollPosition = () => {
+      const newScrollWidth = Math.round(
+        (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
+          100
+      );
+      setScrollWidth(newScrollWidth);
+    };
+
     window.addEventListener("scroll", handleScrollPosition);
 
     return () => {
       window.removeEventListener("scroll", handleScrollPosition);
     };
-  }, [handleScrollPosition]);
+  }, [scrollWidth]);
 
-  return scrollPosition;
+  return [scrollWidth];
 };
