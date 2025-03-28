@@ -17,7 +17,7 @@ export const useProgressBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScrollPosition);
     };
-  }, [scrollWidth]);
+  }, []);
 
-  return [scrollWidth];
+  return scrollWidth;
 };

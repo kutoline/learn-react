@@ -1,7 +1,7 @@
 import { useProgressBar } from "./use-progress-bar";
 
 export const ProgressBar = () => {
-  const [scrollWidth] = useProgressBar();
+  const scrollWidth = useProgressBar();
 
   return (
     <div
@@ -11,6 +11,6 @@ export const ProgressBar = () => {
         width: `${scrollWidth}%`,
         backgroundColor: "red",
       }}
-    ></div>
+    />
   );
 };
