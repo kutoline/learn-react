@@ -1,12 +1,6 @@
 import { useForm } from "./use-form";
 import { ReviewRatingCounter } from "./partials/ReviewRatingCounter";
 import { MIN_RATING, MAX_RATING } from "./constants/rating-counter";
-import {
-  CLEAR_FORM,
-  SET_NAME,
-  SET_TEXT,
-  SET_RATING,
-} from "./constants/field-names";
 
 export const ReviewForm = ({ formTitle = "" }) => {
   const {

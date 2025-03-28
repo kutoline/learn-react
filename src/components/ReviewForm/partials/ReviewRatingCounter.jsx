@@ -1,4 +1,5 @@
 import { Counter } from "../../../common/components/Counter/Counter";
+import { useCallback } from "react";
 
 export const ReviewRatingCounter = ({
   minRating,
@@ -6,15 +7,21 @@ export const ReviewRatingCounter = ({
   handleChangeRatingReview,
   currentRating,
 }) => {
-  const handleDecreaseRating = (rating) => {
-    const newRatingValue = rating - 1;
-    handleChangeRatingReview(newRatingValue);
-  };
+  const handleDecreaseRating = useCallback(
+    (rating) => {
+      const newRatingValue = rating - 1;
+      handleChangeRatingReview(newRatingValue);
+    },
+    [handleChangeRatingReview]
+  );
 
-  const handleIncreaseRating = (rating) => {
-    const newRatingValue = rating + 1;
-    handleChangeRatingReview(newRatingValue);
-  };
+  const handleIncreaseRating = useCallback(
+    (rating) => {
+      const newRatingValue = rating + 1;
+      handleChangeRatingReview(newRatingValue);
+    },
+    [handleChangeRatingReview]
+  );
 
   return (
     <>

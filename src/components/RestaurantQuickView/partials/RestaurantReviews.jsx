@@ -1,6 +1,6 @@
 import { ReviewForm } from "../../ReviewForm/ReviewForm";
 
-export const RestaurantReviews = ({ restaurantId, reviews }) => {
+export const RestaurantReviews = ({ reviews }) => {
   if (!reviews.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;
   }
