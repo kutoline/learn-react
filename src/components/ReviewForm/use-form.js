@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import {
   CLEAR_FORM,
   SET_NAME,
@@ -27,31 +27,33 @@ const reducer = (state = {}, { type, payload }) => {
 export const useForm = (initialState = INITIAL_STATE) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleResetForm = () => {
+  const handleResetForm = useCallback(() => {
     dispatch({
       type: CLEAR_FORM,
       payload: { name: "", text: "", rating: 0 },
     });
-  };
+  }, []);
 
-  const handleSetNameValue = (value) => {
+  const handleSetNameValue = useCallback((value) => {
     dispatch({
       type: SET_NAME,
       payload: value,
     });
-  };
-  const handleSetTextValue = (value) => {
+  }, []);
+
+  const handleSetTextValue = useCallback((value) => {
     dispatch({
       type: SET_TEXT,
       payload: value,
     });
-  };
-  const handleSetRatingValue = (value) => {
+  }, []);
+
+  const handleSetRatingValue = useCallback((value) => {
     dispatch({
       type: SET_RATING,
       payload: value,
     });
-  };
+  }, []);
 
   return {
     state,
