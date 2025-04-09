@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { ReviewForm } from "../../ReviewForm/ReviewForm";
+import { AufContext } from "../../AufContext/AufContext";
 
 export const RestaurantReviews = ({ reviews }) => {
+  const { user } = useContext(AufContext);
+
   if (!reviews.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;
   }
@@ -19,7 +23,7 @@ export const RestaurantReviews = ({ reviews }) => {
           );
         })}
       </ul>
-      <ReviewForm formTitle="Написать отзыв" />
+      {user && <ReviewForm formTitle="Написать отзыв" />}
     </div>
   );
 };

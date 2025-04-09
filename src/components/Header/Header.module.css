@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--header-background);
+  padding: 10px;
+  border-bottom: 1px solid var(--theme-line);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: flex-start;
+}

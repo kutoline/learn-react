@@ -1,6 +1,8 @@
 import { useForm } from "./use-form";
 import { ReviewRatingCounter } from "./partials/ReviewRatingCounter";
 import { MIN_RATING, MAX_RATING } from "./constants/rating-counter";
+import { Textarea } from "../../common/components/Textarea/Textarea";
+import { Input } from "../../common/components/Input/Input";
 
 export const ReviewForm = ({ formTitle = "" }) => {
   const {
@@ -15,17 +17,18 @@ export const ReviewForm = ({ formTitle = "" }) => {
     <div>
       {formTitle && <h3>{formTitle}</h3>}
       <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          type="text"
+        <Input
           name="name"
+          handleChange={(e) => handleSetNameValue(e.target.value)}
           value={name}
-          onChange={(e) => handleSetNameValue(e.target.value)}
         />
-        <textarea
+
+        <Textarea
           name="text"
           value={text}
-          onChange={(e) => handleSetTextValue(e.target.value)}
+          handleChange={(e) => handleSetTextValue(e.target.value)}
         />
+
         <ReviewRatingCounter
           currentRating={rating}
           minRating={MIN_RATING}
