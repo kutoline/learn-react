@@ -1,17 +1,14 @@
 import styles from "./Button.module.css";
 import cn from "classnames";
 
-export const Button = ({
-  text,
-  handleButtonClick,
-  buttonClassName = "",
-  children,
-}) => {
+export const Button = ({ handleButtonClick, active, children }) => {
+  const buttonClasses = cn({
+    [styles.button]: true,
+    [styles.buttonActive]: active,
+  });
+
   return (
-    <button
-      className={cn(styles.button, buttonClassName)}
-      onClick={handleButtonClick}
-    >
+    <button className={buttonClasses} onClick={handleButtonClick}>
       {children}
     </button>
   );

@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ReviewForm } from "../../ReviewForm/ReviewForm";
-import { AufContext } from "../../AufContext/AufContext";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 export const RestaurantReviews = ({ reviews }) => {
-  const { user } = useContext(AufContext);
+  const { user } = useContext(AuthContext);
 
   if (!reviews.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;

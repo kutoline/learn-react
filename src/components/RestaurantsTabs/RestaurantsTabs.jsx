@@ -19,17 +19,14 @@ export const RestaurantsTabs = ({ restaurants }) => {
   };
 
   return (
-    <div className={styles.restaurantsTabs}>
+    <div>
       <div className={styles.restaurantsTabs__navigation}>
         {restaurants.map((restaurant) => {
           return (
             <Button
               handleButtonClick={() => handleSelectedRestaraunt(restaurant)}
               key={restaurant.id}
-              buttonClassName={classNames({
-                [stylesTab.tab]: true,
-                [stylesTab.tabActive]: restaurant.id === selectedRestaurant.id,
-              })}
+              active={restaurant.id === selectedRestaurant.id}
             >
               {restaurant.name}
             </Button>

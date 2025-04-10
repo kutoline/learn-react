@@ -3,5 +3,4 @@
     position: fixed;
     height: 10px;
     background-color: var(--theme-progress-bar);
-    z-index: 100;
 }

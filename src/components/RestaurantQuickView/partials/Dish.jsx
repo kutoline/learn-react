@@ -4,10 +4,10 @@ import {
   MIN_DISH_QUANTITY,
 } from "../constants/dish-counter";
 import { DishCounter } from "./DishCounter";
-import { AufContext } from "../../AufContext/AufContext";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 export const Dish = ({ name, price, ingredients }) => {
-  const { user } = useContext(AufContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <>

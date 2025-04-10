@@ -6,21 +6,12 @@
   padding: 20px 18px;
   font-weight: 600;
   cursor: pointer;
-}
-
-.tab {
-  background-color: var(--bg-secondary);
-  cursor: pointer;
-  border-radius: var(--border-radius-xl);
-  padding: 20px 18px;
-  font-weight: 600;
-  cursor: pointer;
 
   &:hover {
     background-color: var(--bg-primary);
   }
 }
 
-.tabActive {
+.buttonActive {
   background-color: var(--bg-primary);
 }
