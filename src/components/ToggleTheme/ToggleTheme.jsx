@@ -6,7 +6,7 @@ export const ToggleTheme = () => {
   const { theme, updateTheme } = useContext(ThemeContext);
 
   return (
-    <Button buttonClassName={""} handleButtonClick={updateTheme}>
+    <Button handleButtonClick={updateTheme}>
       {theme === "dark" ? "Светлая тема" : "Темная тема"}
     </Button>
   );
