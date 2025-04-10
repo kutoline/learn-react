@@ -1,30 +1,5 @@
-.restaurantsTabs {
-  position: relative;
-}
-
 .restaurantsTabs__navigation {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
-}
-
-.restaurantsTabs__button {
-  border: 0;
-  background-color: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 20px 18px;
-  font-weight: 600;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--bg-primary);
-  }
-}
-
-.restaurantsTabs__buttonActive {
-  background-color: var(--bg-primary);
-}
-
-.restaurantsTabs__content {
-  margin-top: 300px;
 }

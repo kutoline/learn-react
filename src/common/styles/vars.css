@@ -1,8 +1,15 @@
 :root {
   --color-primary: #21201f;
   --color-secondary: #9e9b98;
+
   --bg-primary: #fce000;
   --bg-secondary: #f5f4f2;
+
+  --border-radius-xl: 16px;
+
   --theme-line: #8a8784;
   --header-background: #ffffff;
+
+  --theme-progress-bar: var(--bg-primary);
+  --padding-xxl: 20px ;
 }
