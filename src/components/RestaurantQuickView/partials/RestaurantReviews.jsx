@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { ReviewForm } from "../../ReviewForm/ReviewForm";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 export const RestaurantReviews = ({ reviews }) => {
+  const { user } = useContext(AuthContext);
+
   if (!reviews.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;
   }
@@ -19,7 +23,7 @@ export const RestaurantReviews = ({ reviews }) => {
           );
         })}
       </ul>
-      <ReviewForm formTitle="Написать отзыв" />
+      {user && <ReviewForm formTitle="Написать отзыв" />}
     </div>
   );
 };

@@ -1,0 +1,6 @@
+
+.progressBar {
+    position: fixed;
+    height: 10px;
+    background-color: var(--theme-progress-bar);
+}
