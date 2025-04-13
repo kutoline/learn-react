@@ -2,8 +2,7 @@ import styles from "./Button.module.css";
 import cn from "classnames";
 
 export const Button = ({ handleButtonClick, active, children }) => {
-  const buttonClasses = cn({
-    [styles.button]: true,
+  const buttonClasses = cn(styles.button, {
     [styles.buttonActive]: active,
   });
 
