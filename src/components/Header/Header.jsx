@@ -2,6 +2,7 @@ import styles from "../Header/Header.module.css";
 import { ToggleTheme } from "../ToggleTheme/ToggleTheme";
 import { Profile } from "../Profile/Profile";
 import cn from "classnames";
+import { CartContainer } from "../Cart/CartContainer";
 
 export const Header = () => {
   return (
@@ -9,6 +10,7 @@ export const Header = () => {
       <div className={cn("container", styles.headerContainer)}>
         <ToggleTheme />
         <Profile />
+        <CartContainer/>
       </div>
     </header>
   );

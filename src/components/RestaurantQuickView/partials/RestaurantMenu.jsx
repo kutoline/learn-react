@@ -1,7 +1,9 @@
-import { Dish } from "./Dish";
+import { useSelector } from "react-redux";
+import { Dish } from "./Dish/Dish";
+import { DishContainer } from "./Dish/DishContainer";
 
-export const RestaurantMenu = ({ menu }) => {
-  if (!menu.length) {
+export const RestaurantMenu = ({ menuIds }) => {
+  if (!menuIds.length) {
     return <p>Ресторан пока что не опубликовал свое меню</p>;
   }
 
@@ -9,10 +11,10 @@ export const RestaurantMenu = ({ menu }) => {
     <div>
       <h2>Меню</h2>
       <ul>
-        {menu.map((dish) => {
+        {menuIds.map((id) => {
           return (
-            <li key={dish.id}>
-              <Dish {...dish} />
+            <li key={id}>
+              <DishContainer key={id} id={id} />
             </li>
           );
         })}

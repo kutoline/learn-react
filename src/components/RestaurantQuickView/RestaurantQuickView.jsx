@@ -5,8 +5,8 @@ export const RestaurantQuickView = ({ id, name, menu, reviews }) => {
   return (
     <div>
       <h1>{name}</h1>
-      <RestaurantMenu menu={menu} />
-      <RestaurantReviews restaurantId={id} reviews={reviews} />
+      <RestaurantMenu menuIds={menu} restaurantId={id} />
+      <RestaurantReviews restaurantId={id} reviewIds={reviews} />
     </div>
   );
 };
