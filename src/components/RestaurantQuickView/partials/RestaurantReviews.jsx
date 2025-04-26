@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { ReviewForm } from "../../ReviewForm/ReviewForm";
 import { AuthContext } from "../../AuthContext/AuthContext";
+import { ReviewContainer } from "./Review/ReviewContainer";
 
-export const RestaurantReviews = ({ reviews }) => {
+export const RestaurantReviews = ({ reviewIds }) => {
   const { user } = useContext(AuthContext);
 
-  if (!reviews.length) {
+  if (!reviewIds.length) {
     return <p>Никто не оставил отзывов об этом ресторане</p>;
   }
 
@@ -13,14 +14,8 @@ export const RestaurantReviews = ({ reviews }) => {
     <div>
       <h2>Отзывы</h2>
       <ul>
-        {reviews.map(({ id, user, text, rating }) => {
-          return (
-            <li key={id}>
-              <p>{user}</p>
-              <p>{text}</p>
-              <p>{rating}</p>
-            </li>
-          );
+        {reviewIds.map((id) => {
+          return <ReviewContainer key={id} id={id} />;
         })}
       </ul>
       {user && <ReviewForm formTitle="Написать отзыв" />}

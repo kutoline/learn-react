@@ -1,42 +1,39 @@
 import { useState } from "react";
 import styles from "./restaurants-tabs.module.css";
-import { RestaurantQuickView } from "../RestaurantQuickView/RestaurantQuickView";
-import classNames from "classnames";
-import stylesTab from "../../common/components/Tab/Tab.module.css";
-import { Button } from "../../common/components/Button/Button";
+import { RestaurantQuickViewContainer } from "../RestaurantQuickView/RestaurantQuickViewContainer";
+import { RestaurantTabContainer } from "./partials/RestaurantTabContainer";
 
-export const RestaurantsTabs = ({ restaurants }) => {
-  const [selectedRestaurant, setSelectedRestaurant] = useState(
-    restaurants.at(0)
+export const RestaurantsTabs = ({ restaurantsIds }) => {
+  const [selectedRestaurantId, setSelectedRestaurantId] = useState(
+    restaurantsIds.at(0)
   );
 
-  const handleSelectedRestaraunt = (restaurant) => {
-    if (restaurant.id === selectedRestaurant.id) {
+  const handleSelectedRestaraunt = (id) => {
+    if (id === selectedRestaurantId) {
       return;
     }
 
-    setSelectedRestaurant(restaurant);
+    setSelectedRestaurantId(id);
   };
 
   return (
     <div>
       <div className={styles.restaurantsTabs__navigation}>
-        {restaurants.map((restaurant) => {
+        {restaurantsIds.map((id) => {
           return (
-            <Button
-              handleButtonClick={() => handleSelectedRestaraunt(restaurant)}
-              key={restaurant.id}
-              active={restaurant.id === selectedRestaurant.id}
-            >
-              {restaurant.name}
-            </Button>
+            <RestaurantTabContainer
+              handleSelectedRestaraunt={handleSelectedRestaraunt}
+              key={id}
+              id={id}
+              selectedRestaurantId={selectedRestaurantId}
+            />
           );
         })}
       </div>
       <div className={styles.restaurantsTabs__content}>
-        <RestaurantQuickView
-          key={selectedRestaurant.id}
-          {...selectedRestaurant}
+        <RestaurantQuickViewContainer
+          key={selectedRestaurantId}
+          selectedRestaurantId={selectedRestaurantId}
         />
       </div>
     </div>
