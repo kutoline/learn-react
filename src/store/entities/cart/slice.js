@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    products: [],
-    totalAmount: 0,
-    totalPrice: 0,
+    entities: {},
 }
 
 export const cartSlice = createSlice({
@@ -11,31 +9,36 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, { payload }) => {
-            const productIndex = state.products.findIndex(product => product.id === payload.id);
+            const dish = state.entities[payload.id];
 
-            if (productIndex > -1) {
-                state.products[productIndex].price += payload.price
-                state.products[productIndex].amount = payload.amount
+            if (Object.hasOwn(state.entities, payload.id)) {
+                dish.price += payload.price
+                dish.amount = dish.amount + 1;
             } else {
-                state.products.push(payload);
+                state.entities[payload.id] = { ...payload, amount: 1 }
             }
         },
         removeFromCart: (state, { payload }) => {
-            const productIndex = state.products.findIndex(product => product.id === payload.id);
 
-            if ((productIndex > -1) && payload.amount === 0) {
-                state.products.splice(productIndex, 1)
-            } else if ((productIndex > -1)) {
-                state.products[productIndex].price -= payload.price
-                state.products[productIndex].amount = payload.amount
+            const dish = state.entities[payload.id];
+
+            if (Object.hasOwn(state.entities, payload.id) && dish.amount >= 1) {
+                dish.price -= payload.price
+                dish.amount = dish.amount - 1
+            } else if (Object.hasOwn(state.entities, payload.id)) {
+                delete state.entities[payload.id]
             }
         }
     },
     selectors: {
-        getCart: (state) => state,
+        getCartDishIds: (state) => {
+            return Object.keys(state.entities).map(id => id)
+        },
+        getDishFromCartById: (state, id) => state.entities[id],
+        getDishAmountById: (state, id) => state.entities[id]?.amount
     }
 })
 
-export const { getCart } = cartSlice.selectors;
+export const { getCartDishIds, getDishAmountById, getDishFromCartById } = cartSlice.selectors;
 export const { addToCart, removeFromCart } = cartSlice.actions;
 

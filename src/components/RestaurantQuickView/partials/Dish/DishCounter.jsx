@@ -1,6 +1,6 @@
 import { Counter } from "../../../../common/components/Counter/Counter";
 
-export const  DishCounter = ({
+export const DishCounter = ({
   minDishQuantity,
   maxDishQuantity,
   setDecrement,

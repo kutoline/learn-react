@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { Dish } from "./Dish/Dish";
 import { DishContainer } from "./Dish/DishContainer";
 
@@ -14,7 +13,7 @@ export const RestaurantMenu = ({ menuIds }) => {
         {menuIds.map((id) => {
           return (
             <li key={id}>
-              <DishContainer key={id} id={id} />
+              <DishContainer id={id} />
             </li>
           );
         })}

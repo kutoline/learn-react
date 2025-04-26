@@ -2,7 +2,11 @@ import { normalizedDishes } from "../../../../materials/normalizedMock"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    entities: normalizedDishes
+    entities: normalizedDishes.reduce((acc, entity) => {
+        acc[entity.id] = entity;
+        return acc;
+    }, {}),
+    ids: normalizedDishes.map(entity => entity.id)
 }
 
 export const dishesSlice = createSlice({
@@ -10,8 +14,9 @@ export const dishesSlice = createSlice({
     initialState,
     reducers: {},
     selectors: {
-        getDishByRestaurantId: (state, id) => state.entities.find(dish => dish.id === id)
+        getDishById: (state, id) => state.entities[id],
+        getDishIds: (state) => state.ids,
     }
 })
 
-export const { getDishByRestaurantId } = dishesSlice.selectors
+export const { getDishById } = dishesSlice.selectors

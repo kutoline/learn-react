@@ -1,13 +1,12 @@
-import { Product } from "./partials/Product";
+import { ProductContainer } from "./partials/ProductContainer";
 
-export const Cart = ({ cart }) => {
-  const { products } = cart;
+export const Cart = ({ dishIds }) => {
   return (
     <div>
       <ul>
-        {products.map(({ name, price, amount, id }) => (
-          <Product key={id} name={name} price={price} amount={amount} />
-        ))}
+        {dishIds.map((id) => {
+          return <ProductContainer key={id} id={id} />;
+        })}
       </ul>
     </div>
   );

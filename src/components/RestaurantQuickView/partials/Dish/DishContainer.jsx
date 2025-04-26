@@ -1,30 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
-import { getDishByRestaurantId } from "../../../../store/entities/dishes/slice";
+import { useSelector, useDispatch } from "react-redux";
+import { getDishById } from "../../../../store/entities/dishes/slice";
 import { Dish } from "./Dish";
-import { useCounter } from "../../../../common/hooks/use-counter";
+import { useCartDish } from "./use-cart-dish";
 import { MIN_DISH_QUANTITY } from "../../constants/dish-counter";
-import { addToCart, removeFromCart } from "../../../../store/entities/cart/slice";
 
 export const DishContainer = ({ id }) => {
-  const dish = useSelector((state) => getDishByRestaurantId(state, id));
-  const { count, setIncrement, setDecrement } = useCounter(MIN_DISH_QUANTITY);
-
-  const dispatch = useDispatch();
-
-  const handleAddToCartDish = () => {
-    setIncrement();
-    dispatch(addToCart({ ...dish, amount: count + 1 }));
-  };
-
-  const handleRemoveFromCartDish = () => {
-    setDecrement();
-    dispatch(removeFromCart({ ...dish, amount: count -1 }));
-  };
+  const dish = useSelector((state) => getDishById(state, id));
+  const { dishAmount, handleAddToCartDish, handleRemoveFromCartDish } =
+    useCartDish(dish, id);
 
   return (
     <Dish
       {...dish}
-      count={count}
+      count={dishAmount}
       handleRemoveFromCartDish={handleRemoveFromCartDish}
       handleAddToCartDish={handleAddToCartDish}
     />

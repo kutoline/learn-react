@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Review = ({ id, user, text, rating }) => {
+export const ListItemReview = ({ id, user, text, rating }) => {
   return (
     <li key={id}>
       <p>{user}</p>

@@ -2,7 +2,11 @@ import { normalizedReviews } from "../../../../materials/normalizedMock"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    entities: normalizedReviews
+    entities: normalizedReviews.reduce((acc, entity) => {
+        acc[entity.id] = entity;
+        return acc;
+    }, {}),
+    ids: normalizedReviews.map(entity => entity.id)
 }
 
 export const reviewsSlice = createSlice({
@@ -10,7 +14,8 @@ export const reviewsSlice = createSlice({
     initialState,
     reducers: {},
     selectors: {
-        getReviewById: (state, id) => state.entities.find((review) => review.id === id)
+        getReviewById: (state, id) => state.entities[id],
+        getReviewsIds: (state) => state.ids,
     }
 })
 
